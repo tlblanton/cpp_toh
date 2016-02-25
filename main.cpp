@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 //I like to think that this namespace makes these global variables a little less bad, but in reality it may not. Boo globals.
@@ -31,7 +30,7 @@ int main()
     int rings;
     cout << "How many rings are on tower A?" << endl;
     cin >> rings;
-    for(int i = rings; i > 0; --i)
+    for(int i = rings-1; i > -1; --i)
     {
         A.stack.push_back(i);
     }
@@ -43,7 +42,6 @@ int main()
 
     return 0;
 }
-
 
 void hanoi(int rings, customStack& start, customStack& aux, customStack& end)
 {
@@ -63,7 +61,6 @@ void hanoi(int rings, customStack& start, customStack& aux, customStack& end)
         start.stack.pop_back();
         cout << start.name << " -> " << end.name << endl;
         display(A, B, C);
-
         hanoi(rings-1, aux, start, end);
     }
 }
